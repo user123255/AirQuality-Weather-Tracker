@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🌤️ Weather & AQI Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header class="header">
+      <div class="header-left">
+        <h1 class="title">🌦️ Weather & AQI Tracker</h1>
+        <p class="subtitle">Instant weather, AQI, tips & more — offline-safe</p>
+      </div>
+
+      <div class="header-right">
+        <button id="darkToggle" class="btn small">🌙 Dark</button>
+        <button id="voiceBtn" class="btn small">🎤 Voice</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls card slide-in">
+        <div class="search-row">
+          <input id="city" placeholder="Enter city (e.g., Kigali)" autocomplete="off" />
+          <button id="checkBtn" class="btn">Check</button>
+           
+        </div>
+
+        <div class="recent">
+          <strong>Recent:</strong>
+          <div id="recentList" class="recent-list"></div>
+        </div>
+      </section>
+
+      <div id="loader" class="loader hidden"></div>
+
+      <section id="results" class="results hidden">
+
+        <div id="hero" class="hero card slide-in">
+          <div class="hero-left">
+            <div id="weatherIcon" class="weather-emoji">⛅</div>
+          </div>
+          <div class="hero-right">
+            <h2 id="cityName">—</h2>
+            <div class="temp-row">
+              <p id="temp" class="temp">--°C</p>
+              <p id="condition" class="cond">—</p>
+            </div>
+            <p id="extra" class="extra">Humidity: — | Wind: — m/s</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card slide-in small-card" id="aqiCard">
+            <h3>Air Quality</h3>
+            <p><strong>AQI:</strong> <span id="aqiValue">—</span></p>
+            <p><strong>Status:</strong> <span id="aqiStatus">—</span></p>
+            <p id="aqiDesc" class="muted"></p>
+          </div>
+
+          <div class="card slide-in" id="hourlyCard">
+            <h3>Next 12 Hours</h3>
+            <div id="hourly" class="forecast-grid"></div>
+          </div>
+
+          <div class="card slide-in" id="dailyCard">
+            <h3>3-Day Forecast</h3>
+            <div id="forecast" class="forecast-grid"></div>
+          </div>
+
+          <div class="card slide-in" id="tipsCard">
+            <h3>Tips</h3>
+            <p id="tips"></p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <small>Instant Weather & AQI Tracker</small>
+    </footer>
+  </div>
+
+
+<script src="script.js" defer></script>
+</body>
+</html>
+
