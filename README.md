@@ -56,13 +56,7 @@ Usage
 Open the web app in your browser.
 This is the structure of how this app looks like 
 Type a city name in the search box.
-<img width="956" height="362" alt="image" src="https://github.com/user-attachments/assets/12e477c6-b502-4d16-841a-4b089de9a60e" />
-
-
 Click Check to fetch:
-<img width="957" height="436" alt="image" src="https://github.com/user-attachments/assets/21dca807-f78f-499c-ac86-f53fd3fe3652" />
-
-
 Current weather
 
 Hourly forecast
@@ -95,15 +89,49 @@ pm2 start server.js --name weather-app
 pm2 save
 
 Verify the app is running:
+
 curl -I http://localhost:5500
 
-Load Balancer Setup (Lb01)
+2. Load Balancer Setup (Lb01)
 SSH into the load balancer:
 ssh ubuntu@<load-balancer-ip>
 
 Install HAProxy:
 sudo apt update
 sudo apt install -y haproxy
+
+Edit the HAProxy configuration /etc/haproxy/haproxy.cfg:
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    daemon
+
+defaults
+    log     global
+    mode    http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
+
+frontend http_front
+    bind *:80
+    default_backend http_back
+
+backend http_back
+    balance roundrobin
+    server web1 <Web01-IP>:5500 check
+    server web2 <Web02-IP>:5500 check
+    
+Restart HAProxy:
+sudo systemctl restart haproxy
+sudo systemctl status haproxy
+
+Test Load Balancer:
+curl -I http://<load-balancer-ip>
+
+3. Security & Firewall
+sudo ufw allow 5500/tcp
+sudo ufw status
 
 💡 Notes
 
@@ -124,3 +152,9 @@ Very Poor 🚫
 📜 License
 
 MIT License © 2025
+
+About the Developer
+
+Nyayath Lual Deng Chol is a passionate software engineering student and aspiring tech innovator from South Sudan. she is driven by a mission to create practical and scalable technological solutions that address real-world challenges,in the community development.
+
+Nyayath is skilled in Node.js, Python, and frontend development, and is committed to building impactful projects that combine innovation with social good.
