@@ -1,6 +1,6 @@
 🌤️ Air Quality & Weather Tracker
 
-Real-time weather and air quality tracking web application. Enter any city to get the current weather, 3-hour forecasts, 3-day forecast, and 72-hour air quality index (AQI).
+A real-time weather and air quality tracking web application. Enter any city to get the current weather, 3-hour forecasts, 3-day forecasts, and a 72-hour air quality index (AQI).
 
 📌 Features
 
@@ -32,18 +32,18 @@ Forward/Reverse Geocoding API (forward-reverse-geocoding.p.rapidapi.com)
 
 Other Libraries: node-fetch, cors, dotenv
 
-⚡ Getting Started
+Getting Started
 git clone <your-repo-url>
-cd your-repo-folder
+cd <your-repo-folder>
 
-2. Install dependencies
+Install dependencies
 npm install
 
 Run the server
 node server.js
 
 📂 Project Structure
-
+Airquality-weather-Tracker
 public/
  ├── index.html       # Frontend HTML
  ├── style.css        # CSS styles
@@ -52,13 +52,16 @@ server.js             # Node.js + Express backend
 .env                  # Environment variables for API keys
 README.md             # Project documentation
 
-🚀 Usage
-
+Usage
 Open the web app in your browser.
 
 Type a city name in the search box.
+<img width="956" height="362" alt="image" src="https://github.com/user-attachments/assets/12e477c6-b502-4d16-841a-4b089de9a60e" />
+
 
 Click Check to fetch:
+<img width="957" height="436" alt="image" src="https://github.com/user-attachments/assets/21dca807-f78f-499c-ac86-f53fd3fe3652" />
+
 
 Current weather
 
@@ -68,29 +71,60 @@ Hourly forecast
 
 AQI for the next 72 hours
 
-View color-coded AQI advice and weather info dynamically.
+<img width="920" height="853" alt="image" src="https://github.com/user-attachments/assets/cba047c1-56b9-4a48-ac8f-84b21201edd6" />
 
-🎨 Screenshots
+<img width="932" height="782" alt="image" src="https://github.com/user-attachments/assets/d07bd837-b74d-4b78-8bf1-4c67b537162c" />
 
-(Add screenshots of your app here showing weather cards, AQI, and forecast.)
-🎨 Screenshots
+
+
+
+View color-coded AQI advice and dynamic weather info.
+
+🌐 Deployment & Load Balancer
+This app is deployed on two web servers and one load balancer (HAProxy) for scalability and reliability.
+
+1. Web Servers Setup (Web01 & Web02)
+
+SSH into each server:
+ssh ubuntu@<server-ip>
+
+Install Node.js and dependencies:
+sudo apt update
+sudo apt install -y nodejs npm build-essential python3
+cd ~/AirQuality-Weather-Tracker
+npm install
+
+Run the application with PM2:
+pm2 start server.js --name weather-app
+pm2 save
+
+Verify the app is running:
+curl -I http://localhost:5500
+
+Load Balancer Setup (Lb01)
+SSH into the load balancer:
+ssh ubuntu@<load-balancer-ip>
+
+Install HAProxy:
+sudo apt update
+sudo apt install -y haproxy
 
 💡 Notes
+
 The app fetches data from RapidAPI; a stable internet connection is required.
 
 AQI values are categorized as:
 
-1 – Good ✅
+Good ✅
 
-2 – Fair ⚖️
+Fair ⚖️
 
-3 – Moderate ⚠️
+Moderate ⚠️
 
-4 – Poor ❌
+Poor ❌
 
-5 – Very Poor 🚫
+Very Poor 🚫
 
 📜 License
 
 MIT License © 2025
-
