@@ -54,7 +54,7 @@ README.md             # Project documentation
 
 Usage
 Open the web app in your browser.
-
+This is the structure of how this app looks like 
 Type a city name in the search box.
 <img width="956" height="362" alt="image" src="https://github.com/user-attachments/assets/12e477c6-b502-4d16-841a-4b089de9a60e" />
 
@@ -70,10 +70,11 @@ Hourly forecast
 3-day forecast
 
 AQI for the next 72 hours
-
-<img width="920" height="853" alt="image" src="https://github.com/user-attachments/assets/cba047c1-56b9-4a48-ac8f-84b21201edd6" />
-
 View color-coded AQI advice and dynamic weather info.
+
+Here is the  Demo video that shows how this app function from the beginning to the end
+https://youtu.be/RmKlW0TG_Jg
+
 
 🌐 Deployment & Load Balancer
 This app is deployed on two web servers and one load balancer (HAProxy) for scalability and reliability.
