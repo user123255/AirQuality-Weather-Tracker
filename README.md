@@ -73,11 +73,6 @@ AQI for the next 72 hours
 
 <img width="920" height="853" alt="image" src="https://github.com/user-attachments/assets/cba047c1-56b9-4a48-ac8f-84b21201edd6" />
 
-<img width="932" height="782" alt="image" src="https://github.com/user-attachments/assets/d07bd837-b74d-4b78-8bf1-4c67b537162c" />
-
-
-
-
 View color-coded AQI advice and dynamic weather info.
 
 🌐 Deployment & Load Balancer
