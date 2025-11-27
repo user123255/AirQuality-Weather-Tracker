@@ -67,10 +67,12 @@ AQI for the next 72 hours
 View color-coded AQI advice and dynamic weather info.
 
 Here is the  Demo video that shows how this app function from the beginning to the end
+
 https://youtu.be/RmKlW0TG_Jg
 
 
 🌐 Deployment & Load Balancer
+
 This app is deployed on two web servers and one load balancer (HAProxy) for scalability and reliability.
 
 1. Web Servers Setup (Web01 & Web02)
@@ -90,6 +92,7 @@ pm2 save
 
 Verify the app is running:
 I have an issue with my domain name which led to the usage if localhost instead of my domain name 
+
 curl -I http://localhost:5500
 
 2. Load Balancer Setup (Lb01)
