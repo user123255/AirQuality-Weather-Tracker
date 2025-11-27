@@ -91,6 +91,7 @@ pm2 start server.js --name weather-app
 pm2 save
 
 Verify the app is running:
+
 I have an issue with my domain name which led to the usage if localhost instead of my domain name 
 
 curl -I http://localhost:5500
