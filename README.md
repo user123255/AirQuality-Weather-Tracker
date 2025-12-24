@@ -78,7 +78,7 @@ This app is deployed on two web servers and one load balancer (HAProxy) for scal
 1. Web Servers Setup (Web01 & Web02)
 
 SSH into each server:
-ssh ubuntu@<server-ip>
+ssh ubuntu@<web1-ip>
 
 Install Node.js and dependencies:
 sudo apt update
@@ -129,7 +129,7 @@ sudo systemctl restart haproxy
 sudo systemctl status haproxy
 
 Test Load Balancer:
-curl -I http://<load-balancer-ip>
+curl -I http://54.224.137.155
 
 3. Security & Firewall
 sudo ufw allow 5500/tcp
