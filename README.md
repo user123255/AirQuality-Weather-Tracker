@@ -92,7 +92,7 @@ pm2 save
 
 Verify the app is running:
 
-http://www.nyayath.tech/
+https://www.nyayath.tech/
 
 2. Load Balancer Setup (Lb01)
 SSH into the load balancer:
@@ -129,7 +129,7 @@ sudo systemctl restart haproxy
 sudo systemctl status haproxy
 
 Test Load Balancer:
-curl -I http://54.224.137.155
+curl -I https://54.224.137.155
 
 3. Security & Firewall
 sudo ufw allow 5500/tcp
